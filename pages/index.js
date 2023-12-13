@@ -1,11 +1,19 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Output from "@/components/Output";
+import Inputs from "@/components/inputs";
+import styles from "@/styles/Home.module.css";
+import Head from "next/head";
+import { useState } from "react";
 
 export default function Home() {
+  const [balance, setBalance] = useState(0);
+  const [risk, setRisk] = useState(0);
+  const [stloss, setStloss] = useState(0);
+  const [outAmount, setOutAmount] = useState(0);
+  const [pSize, setPSize] = useState(0);
+  const [stLot, setStLot] = useState(0);
+  const [miniLot, setMiniLot] = useState(0);
+  const [microLot, setMicroLot] = useState(0);
+
   return (
     <>
       <Head>
@@ -14,110 +22,127 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
+      <main>
+        <div className="grid  grid-cols-2">
           <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+            <select data-te-select-init>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+              <option value="5">Five</option>
+              <option value="6">Six</option>
+              <option value="7">Seven</option>
+              <option value="8">Eight</option>
+            </select>
+            <div className="m-2 ">
+              <label
+                htmlFor="price"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Account Balance
+              </label>
+              <div className="relative mt-2 rounded-md shadow-sm">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <span className="text-gray-500 sm:text-sm">$</span>
+                </div>
+                <input
+                  onChange={(e) => setBalance(e.target.value)}
+                  type="text"
+                  name="price"
+                  id="price"
+                  className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder={balance}
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center">
+                  <label htmlFor="currency" className="sr-only">
+                    Currency
+                  </label>
+                  <select
+                    id="currency"
+                    name="currency"
+                    className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+                  >
+                    <option>USD</option>
+                    <option>CAD</option>
+                    <option>EUR</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="m-2 ">
+              <label
+                htmlFor="price"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Risk Percentage
+              </label>
+              <div className="relative mt-2 rounded-md shadow-sm">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <span className="text-gray-500 sm:text-sm">%</span>
+                </div>
+                <input
+                  onChange={(e) => setRisk(e.target.value)}
+                  type="text"
+                  name="price"
+                  id="price"
+                  className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder={risk}
+                />
+              </div>
+            </div>
+            <div className="m-2 ">
+              <label
+                htmlFor="price"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Stop Loss (pips)
+              </label>
+              <div className="relative mt-2 rounded-md shadow-sm">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <span className="text-gray-500 sm:text-sm"></span>
+                </div>
+                <input
+                  onChange={(e) => setStloss(e.target.value)}
+                  type="text"
+                  name="price"
+                  id="price"
+                  className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder={stloss}
+                />
+              </div>
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                Button
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
+          <div className="grid grid-cols-1">
+            <div className="border-b pb-2">
+              <p className="text-4xl">Results</p>
+            </div>
+            <div className="border-b pb-2">
+              <p className="">Amount at Risk</p>
+              <p>{outAmount} USD</p>
+            </div>
+            <div className="border-b pb-2">
+              <p className="">Position Size(units)</p>
+              <p>{pSize}</p>
+            </div>
+            <div className="border-b pb-2">
+              <p className="">Standard Lots</p>
+              <p>{stLot}</p>
+            </div>
+            <div className="border-b pb-2">
+              <p className="">Mini Lots</p>
+              <p>{miniLot} </p>
+            </div>
+            <div className="border-b pb-2">
+              <p className="">Micro Lots</p>
+              <p>{microLot}</p>
+            </div>
           </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
         </div>
       </main>
     </>
-  )
+  );
 }
