@@ -41,7 +41,7 @@ export default function Navbar({ fixed }) {
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="sardorbtc@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&source=mailto&to=sardor.py@gmail.com"
                 >
                   <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
                   <span className="ml-2">Contact Us</span>

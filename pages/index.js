@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Output from "@/components/Output";
 import Inputs from "@/components/inputs";
+import value from "@/data/pipValues";
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 import { useState } from "react";
@@ -8,7 +9,7 @@ import { useState } from "react";
 export default function Home() {
   function fefe() {
     setOutAmount((balance / 100) * risk);
-    setPSize((((balance / 100) * risk) / stloss) * 10);
+    setPSize((((balance / 100) * risk) / stloss) * value[0][pair]);
     setStLot(Math.round((((balance / 100) * risk) / stloss) * 10) / 100);
     setMiniLot(Math.round((((balance / 100) * risk) / stloss) * 10) / 10);
     setMicroLot((((balance / 100) * risk) / stloss) * 10);
@@ -146,7 +147,7 @@ export default function Home() {
               </div>
               <button
                 onClick={fefe}
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                class="bg-indigo-500 hover:bg-indigo-700 mt-2  text-white font-bold py-2 px-6 rounded-full"
               >
                 Button
               </button>
@@ -175,7 +176,6 @@ export default function Home() {
             <div className="border-b pb-2">
               <p className="">Micro Lots</p>
               <p>{microLot}</p>
-              <p>{pair}</p>
             </div>
           </div>
         </div>
