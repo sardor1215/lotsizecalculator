@@ -30,6 +30,10 @@ export default function Home() {
         <title>Lot Size Calculator</title>
         <meta name="description" content="Lot size calculator for forex" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-3507313975970441"
+        ></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
