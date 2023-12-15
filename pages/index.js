@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Output from "@/components/Output";
-import Inputs from "@/components/inputs";
+
 import value from "@/data/pipValues";
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
@@ -147,7 +147,7 @@ export default function Home() {
               </div>
               <button
                 onClick={fefe}
-                class="bg-indigo-500 hover:bg-indigo-700 mt-2  text-white font-bold py-2 px-6 rounded-full"
+                className="bg-indigo-500 hover:bg-indigo-700 mt-2  text-white font-bold py-2 px-6 rounded-full"
               >
                 Button
               </button>
