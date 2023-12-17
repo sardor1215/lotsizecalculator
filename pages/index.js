@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Output from "@/components/Output";
 
@@ -38,9 +39,10 @@ export default function Home() {
       </Head>
       <main>
         <Navbar />
-        <div className="grid  grid-cols-2 pt-12 mx-72 shadow-inner rounded-md">
-          <div className="mx-32 pt-10">
+        <div className="grid  md:grid-cols-2 py-12 md:mx-72 shadow-inner rounded-lg border-2 text-lg  border-indigo-500">
+          <div className="md:mx-32 pt-10 font-semibold">
             <select
+              className="bg-indigo-500 text-white rounded-lg p-1 ml-2 shadow-xl transition duration-200  hover:scale-105 hover:border-white"
               onChange={(event) => setPair(event.target.value)}
               defaultValue={pair}
             >
@@ -76,12 +78,12 @@ export default function Home() {
             <div className="m-2 ">
               <label
                 htmlFor="price"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
               >
                 Account Balance
               </label>
-              <div className="relative mt-2 rounded-md shadow-sm">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <div className="relative mt-2 rounded-md shadow-sm ">
+                <div className="pointer-events-none  absolute inset-y-0 left-0 flex items-center pl-3">
                   <span className="text-gray-500 sm:text-sm">$</span>
                 </div>
                 <input
@@ -89,7 +91,7 @@ export default function Home() {
                   type="text"
                   name="price"
                   id="price"
-                  className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus:outline-none focus:border-indigo-500 sm:text-sm sm:leading-6"
                   placeholder={balance}
                 />
                 {/* <div className="absolute inset-y-0 right-0 flex items-center">
@@ -111,7 +113,7 @@ export default function Home() {
             <div className="m-2 ">
               <label
                 htmlFor="price"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
               >
                 Risk Percentage
               </label>
@@ -124,7 +126,7 @@ export default function Home() {
                   type="text"
                   name="price"
                   id="price"
-                  className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="focus:outline-none focus:border-indigo-500 block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder={risk}
                 />
               </div>
@@ -132,7 +134,7 @@ export default function Home() {
             <div className="m-2 ">
               <label
                 htmlFor="price"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-md font-semibold   leading-6 text-gray-900"
               >
                 Stop Loss (pips)
               </label>
@@ -145,45 +147,49 @@ export default function Home() {
                   type="text"
                   name="price"
                   id="price"
-                  className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="focus:outline-none focus:border-indigo-500 block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder={stloss}
                 />
               </div>
               <button
                 onClick={fefe}
-                className="bg-indigo-500 hover:bg-indigo-700 mt-2  text-white font-bold py-2 px-6 rounded-full"
+                className="bg-indigo-500 hover:bg-indigo-700 mt-2  text-white font-bold py-2 px-6 rounded-full shadow-xl transition duration-200  hover:scale-105"
               >
                 Button
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-1">
-            <div className="border-b pb-2">
+          <div className="grid grid-cols-1 text-center md:text-left font-semibold">
+            <div className="border-b-2 pb-2 border-indigo-500">
               <p className="text-4xl">Results</p>
             </div>
-            <div className="border-b pb-2">
+            <div className="border-b-2 pb-2 border-indigo-500">
               <p className="">Amount at Risk</p>
               <p>{outAmount} USD</p>
             </div>
-            <div className="border-b pb-2">
+            <div className="border-b-2 pb-2 border-indigo-500">
               <p className="">Position Size(units)</p>
               <p>{pSize}</p>
             </div>
-            <div className="border-b pb-2">
+            <div className="border-b-2 pb-2 border-indigo-500">
               <p className="">Standard Lots</p>
               <p>{stLot}</p>
             </div>
-            <div className="border-b pb-2">
+            <div className="border-b-2 pb-2 border-indigo-500">
               <p className="">Mini Lots</p>
               <p>{miniLot} </p>
             </div>
-            <div className="border-b pb-2">
+            <div className="border-b-2 pb-2 border-indigo-500">
               <p className="">Micro Lots</p>
               <p>{microLot}</p>
             </div>
           </div>
         </div>
-      </main>
+
+        <div className="absolute bottom-0 w-full">
+          <Footer />
+        </div>
+      </main>{" "}
     </>
   );
 }
